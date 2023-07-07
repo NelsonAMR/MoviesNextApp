@@ -5,7 +5,7 @@ import React from "react";
 export async function Movies() {
   const movies = await getMovies();
   return (
-    <div>
+    <div className="flex flex-wrap justify-between gap-x-5 gap-y-10">
       {movies.map((movie) => (
         <MovieCard {...movie} key={movie.id} />
       ))}
