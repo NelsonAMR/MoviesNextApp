@@ -18,12 +18,12 @@ export function MovieCard(movie: IMovie) {
       : "red";
 
   return (
-    <div className="rounded-lg overflow-hidden shadow-lg shadow-gray-400 w-[250px] h-[490px]">
+    <div className="rounded-lg overflow-hidden shadow-md shadow-gray-300 w-[210px] h-[435px]">
       <Image
         src={image}
         alt={movie.title}
-        width={250}
-        height={350}
+        width={210}
+        height={210}
         loading="lazy"
       />
       <div className="relative mt-7 px-4">
