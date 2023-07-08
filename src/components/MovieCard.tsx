@@ -10,7 +10,7 @@ export function MovieCard(movie: IMovie) {
     day: "numeric",
   });
 
-  const color =
+  const color: string =
     movie.vote_average >= 7.5
       ? "green"
       : movie.vote_average >= 5

@@ -4,3 +4,5 @@ export * from "./SearchBar";
 export * from "./Filters";
 export * from "./Movies";
 export * from "./MovieCard";
+export * from "./Sorter";
+export * from "./Menu";
