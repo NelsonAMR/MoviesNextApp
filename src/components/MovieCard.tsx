@@ -2,7 +2,7 @@ import { IMovie } from "@/helpers";
 import Image from "next/image";
 
 export function MovieCard(movie: IMovie) {
-  const image = `https://image.tmdb.org/t/p/w400${movie.poster_path}`;
+  const image = `https://image.tmdb.org/t/p/w300${movie.poster_path}`;
 
   const date = new Date(movie.release_date).toLocaleDateString("en-us", {
     year: "numeric",
@@ -22,9 +22,11 @@ export function MovieCard(movie: IMovie) {
       <Image
         src={image}
         alt={movie.title}
-        width={210}
-        height={210}
-        loading="lazy"
+        width={0}
+        height={0}
+        sizes="100%"
+        className="w-full h-auto object-cover"
+        priority
       />
       <div className="relative mt-7 px-4">
         <span
