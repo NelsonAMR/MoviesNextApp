@@ -1,12 +1,19 @@
-import { getMovies } from "@/helpers";
+"use client";
+
+import { IMovie, getMovies } from "@/helpers";
 import { MovieCard } from "@/components";
+import { useContext, useEffect, useState } from "react";
+import { MoviesContext } from "@/context/MoviesContext";
 
-export async function Movies(props: any) {
-  // const parsedUrl = queryString.parseUrl(params);
-  // const searchParams = parsedUrl.query;
-  console.log(props);
+export function Movies() {
+  const { sortType } = useContext(MoviesContext);
+  const [movies, setMovies] = useState<IMovie[]>([]);
 
-  const movies = await getMovies();
+  useEffect(() => {
+    getMovies(sortType).then((data) => setMovies(data));
+  }, [sortType]);
+
+  console.log(sortType);
   return (
     <div className="flex flex-wrap justify-between gap-x-5 gap-y-10 w-full">
       {movies.map((movie) => (

@@ -1,11 +1,18 @@
 import { IMovie } from "./types";
 
-export async function getMovies(querys?: string) {
-  const { API_URL, API_KEY } = process.env;
+interface IAPIResults {
+  results: IMovie[];
+}
+
+export async function getMovies(sort: string) {
+  const url = process.env.NEXT_PUBLIC_API_URL;
+  const key = process.env.NEXT_PUBLIC_API_KEY;
+
   const response = await fetch(
-    `${API_URL}/discover/movie?api_key=${API_KEY}&${querys}`
+    `${url}/discover/movie?api_key=${key}&sort_by=${sort}.desc`
   );
-  const { results }: { results: IMovie[] } = await response.json();
+
+  const { results }: IAPIResults = await response.json();
 
   return results;
 }

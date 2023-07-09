@@ -1,3 +1,10 @@
 import { createContext } from "react";
 
-export const MoviesContext = createContext({});
+interface IMoviesContext {
+  sortType: string;
+  movieName: string;
+  setSortType: (movies: string) => void;
+  setMovieName: (movies: string) => void;
+}
+
+export const MoviesContext = createContext({} as IMoviesContext);

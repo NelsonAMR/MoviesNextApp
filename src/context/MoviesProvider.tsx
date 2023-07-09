@@ -8,10 +8,13 @@ interface IMoviesProviderProps {
 }
 
 const MoviesProvider = ({ children }: IMoviesProviderProps) => {
-  const [sortType, setSortType] = useState();
+  const [sortType, setSortType] = useState("popularity");
+  const [movieName, setMovieName] = useState("");
 
   return (
-    <MoviesContext.Provider value={{ sortType, setSortType }}>
+    <MoviesContext.Provider
+      value={{ sortType, setSortType, movieName, setMovieName }}
+    >
       {children}
     </MoviesContext.Provider>
   );
