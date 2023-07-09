@@ -1,16 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { getMovies } from "@/helpers";
 
 export function Sorter() {
   const [sort, setSort] = useState("popularity");
-  const searchParams = useSearchParams();
+  const router = useRouter();
 
   const handleSort = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSort(e.target.id);
     console.log(sort);
-    console.log(searchParams);
+    console.log(router);
+    router.push(`?sort_by=${sort}.desc`);
   };
 
   return (
